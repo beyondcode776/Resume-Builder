@@ -428,11 +428,8 @@ textarea{
 
 /* preview section */
 .preview-cnt{
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: 32% auto;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    overflow: hidden;
+    max-height: 100vh;
+    overflow: hidden; 
 }
 
 .preview-cnt-l{
@@ -566,24 +563,40 @@ textarea{
 }
 
 /* print section */
-@media print{
-    body *{
-        visibility: hidden;
-    }
+@media print {
+  body * {
+    visibility: hidden;
+  }
 
-    .non_print_area{
-        display: none;
-    }
+  .print_area, .print_area * {
+    visibility: visible;
+  }
 
-    .print_area, .print_area *{
-        visibility: visible;
-    }
+  .print_area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    transform: scale(0.85); /* ✅ Shrinks content to fit on one page */
+    transform-origin: top left;
+  }
 
-    .print_area{
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        overflow: hidden;
-    }
+  .print-btn-sc,
+  form,
+  .navbar {
+    display: none !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
 }
