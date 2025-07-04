@@ -14,7 +14,6 @@ Technical Specifications:
 
 * Built with HTML5, CSS3, and Vanilla JavaScript for a robust foundation
 * Utilizes responsive layout techniques, including Flexbox and Grid
-* Integrates with html2pdf.js for efficient document generation
 * Inspired by modern UI/UX trends for a contemporary aesthetic
 
 📄 Live Preview
